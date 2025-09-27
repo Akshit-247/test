@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study & Revision - Practicals</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .accordion {
+      background-color: #fff;
+      color: #444;
+      cursor: pointer;
+      padding: 15px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      transition: 0.3s;
+      margin-top: 5px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .accordion:hover {
+      background-color: #f1f1f1;
+    }
+    .active {
+      background-color: #e2e2ff;
+    }
+    .panel {
+      padding: 15px;
+      display: none;
+      background-color: #fff;
+      border-left: 3px solid #666;
+      border-radius: 0 0 8px 8px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Study & Revision - Practicals</h1>
+
+  <button class="accordion">Practical 2: ui controls</button>
+  <div class="panel">
+    <p>mainActivity.java:
+      package com.example.practical1;
+
+import android.os.Bundle;
+
+import android.widget.Button;
+
+import android.widget.EditText;
+
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+EditText editText;
+
+Button button;
+
+@Override
+
+protected void onCreate(Bundle savedInstanceState) {
+
+super.onCreate(savedInstanceState);
+
+setContentView(R.layout.activity_main);
+
+edit Text findViewById(R.id.editText);
+
+button findViewById(R.id.button);
+
+button.setOnClickListener(v-> {
+
+String text editText.getText().toString();
+
+Toast.makeText(MainActivity.this, "you entered: "+ text, Toast.LENGTH_SHORT).show();
+
+</p>
+<p>
+?xml version="1.0" encoding="utf-8"?>
+
+,LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+android:layout_width="match_parent"
+
+android:layout_height="match_parent"
+
+android:background="#f5cef"
+
+android:gravity="center"
+
+android:orientation="vertical"
+
+android:padding="50dp">
+
+,EditText
+
+android:id="@+id/editText"
+
+android:layout_width="match_parent"
+
+android:layout height="wrap_content"
+
+android:background="@android:drawable/editbox_background"
+
+android:fontFamily="cursive"
+
+android:hint "Enter your Name"
+
+android:textColorHint-"#000"
+
+android:padding="10dp"
+
+android:textColor="@color/black"
+
+android:textSize="20dp"
+/>
+
+,Button
+
+android:id="@+id/button"
+
+android:layout width="wrap_content"
+
+android:layout height="wrap_content"
+
+android:layout marginTop="30dp"
+
+android:background="@android:drawable/btn_default"
+
+android:text="clicl me"
+
+android:textColor="@color/black" />
+
+,LinearLayout>
+
+</p>
+</div>
+
+  <button class="accordion">Practical 4: alert box</button>
+  <div class="panel">
+    <p>activity main.xml
+
+?xml version="1.0" encoding="utf-8"?>
+
+androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/androla
+
+xmlns:app="http://schemas.android.com/apk/res-auto"
+
+xmlns:tools="http://schemas.android.com/tools"
+
+android:id="@+id/main"
+
+android:layout width="match_parent"
+
+android:layout height="match_parent"
+
+tools:context="MainActivity">
+
+,textView
+
+android:layout width="wrap_content"
+
+android:layout_height="wrap_content"
+
+android:text="Hello World"
+
+app:layout_constraintBottom_toBottomOf="parent"
+
+app:layout_constraintEnd_toEndOf="parent"
+
+app:layout_constraintStart_toStartOf-"parent"
+
+app:layout_constraintTop_toTopOf="parent" />
+
+,androidx.constraintlayout.widget.ConstraintLayout>
+
+mainActivity.java
+
+package com.example.alertdialog;
+
+import android.app.AlertDialog;
+
+mport android.content.DialogInterface:
+
+import android.os.Bundle;
+
+port android.widget.Toast;
+
+Import androidx.activity EdgeToEdge;
+
+import android.appcompat.app.AppCompatActivity;
+
+Import androidx.core.graphics.Insets;
+
+port androids.core.view.ViewCompat;
+
+import androidx.core.view.WindowInsets Compat;
+
+public class MainActivity extends AppCompatActivity {
+
+@Override
+
+protected void onCreate(Bundle savedInstanceState) {
+
+super.onCreate(savedIustanceState);
+
+EdgeToEdge.cnable(this);
+
+setContentView(R.layout.activity_main);
+
+ViewCompat.setOnApplyWindowInsetsListener (findViewById(R.id.main), (v. Insets) → {
+
+Insets systemBars=
+
+Insets.getinsets(WindowInsetsCompat.Type.systemBars());
+
+v.setPadding(system Bars.left, systemBars.top, systemBars.right,
+
+systemBars.bottom);
+
+return insets;
+});
+</p>
+<p>}
+
+@Override
+
+public void onBackPressed() {
+
+//super.onBackPressed();
+
+AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+builder.setMessage("Do you want to exit");
+
+builder.setTitle("Alert!");
+
+builder.setCancelable(false);
+
+builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+@Override
+
+public void onClick(DialogInterface dialogInterface, int i) {
+
+finish();
+
+ }
+ });
+
+builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+@Override
+
+public void onClick(DialogInterface dialogInterface, int i) { 
+  Toast.makeText(MainActivity.this, "You clicked on cancel",
+
+Toast.LENGTH_SHORT).show();
+}
+});
+AlertDialog alertDialog = builder.create();
+
+alertDialog.show();</p>
+  </div>
+
+  <button class="accordion">Practical 5:  animation</button>
+  <div class="panel">
+    <p>Activity_main.xml
+
+,?xml version ="1.0" encoding="utf-8"?>
+
+,LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+xmlns:app="http://schemas.android.com/apk/res-auto"
+
+xmlns:tools="http://schemas.android.com/tools"
+
+android:id="@+id/main"
+
+android:layout_width="match_parent"
+
+android:layout_height="match parent"
+
+android:gravity="center"
+
+android:background="@color/black"
+
+tools:context=".MainActivity">
+
+,ImageView
+
+android:id="@+id/dice"
+
+android:layout width="300dp"
+
+android:layout_height="300dp"
+
+android:src="@drawable/dicel" />
+
+/LinearLayout>
+
+roll.xml
+
+,?xml version = "1.0" encoding="utf-8"?>
+
+,set xmlns:androidhttp://schemas.android.com/apk/res/android">
+
+,rotate
+
+android:from Degrees="0"
+
+android:toDegrees-" 720 "
+
+android:pivotX ="50% " 
+
+android:pivot Y = "50%"
+
+android:duration ="500" />
+
+/set>
+
+MainActivity.java
+
+package com.example.diceroller,
+
+import android.os.Bundle;
+
+import android.view.View;
+
+import android.view.animation.Animation;
+
+import android.view.animation.AnimationUtils;
+
+import android.widget. ImageView;
+
+import androidx.activity. EdgeToEdge;
+
+import androidx.appcompat.app.AppCompatActivity;</p>
+<p>import androidx.core.graphics.Insets;
+
+import androidx.core.view.ViewCompat;
+
+import androidx.core.view. WindowInsetsCompat;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity {
+
+Random rand = new Random();
+
+ImageView diceImage;
+
+@Override
+
+protected void onCreate(Bundle savedInstanceState) {
+
+super.onCreate(savedInstanceState);
+
+EdgeToEdge.enable(this);
+
+setContentView(R.layout.activity_main);
+
+ViewCompat.setOnApply WindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+
+Insets systemBars = insets.getInsets(WindowInsetsCompat. Type.systemBars());
+ v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom); 
+ return insets;
+});
+
+dicelmage = findViewById(R.id.dice);
+
+diceImage.setOnClickListener(new View.OnClickListener() {
+
+@Override
+
+public void onClick(View view) {
+
+roll():
+
+} 
+});
+}
+
+private void roll() {
+
+int i= rand.nextInt(6) + 1;
+
+Animation anim AnimationUtils.loadAnimation(this, R.anim.roll);
+
+dicelmage.start Animation(anim);
+
+switch (i) {
+
+case 1:
+
+diceImage:setImageResource(R.drawable.dicel);
+
+break;
+
+dicelmage.setImageResource(R.drawable.dice2);
+
+case 2:
+
+break;
+
+case 3:
+
+diceImage.setImageResource(R.drawable.dice3);
+
+break;
+
+case 4:
+
+dicelmage.setImageResource(R.drawable.dice4);
+
+break;
+
+case 5:
+
+diceImage.setImageResource(R.drawable.dice5);
+
+break;
+
+case 6:
+
+dicelmage.setImageResource(R.drawable.dice6);
+
+break;
+}
+}</p>
+  </div>
+
+<button class="accordion">Practical 7: notifications</button>
+  <div class="panel">
+    <p>MainActivity.java:
+
+package com.example.notifications;
+
+import androidx.annotation.Requires Permission;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.core.app.NotificationCompat;
+
+import androidx.core.app.NotificationManagerCompat,
+
+import android. Manifest;
+
+import android.app. NotificationChannel;
+
+import android.app. NotificationManager,
+
+import android.os.Build;
+
+import android.os.Bundle;
+
+import android.widget.Button,
+
+public class MainActivity extends AppCompatActivity {
+
+private static final String CHANNEL_ID = "demo_channel:
+
+@Requires Permission(Manifest.permission.POST NOTIFICATIONS)
+
+@Override
+
+Protected void onCreate(Bundle savedInstanceState) {
+
+Super.onCreate(savedInstanceState);
+
+setContentView(R.layout.activity main)
+
+if (Build. VERSION SDK INT > Build.VERSION CODES.O) {
+
+NotificationChannel channel = new NotificationManager(CHANNEL_ID,"Demo Channel",NotificationManager.IMPORTANCE DEFAULT);
+
+getSystemService(NotificationManager.class).createNotificationChannel(channel);
+}
+findViewById(R.id.notBtn).setOnClickListener(v-> {
+
+NotificationCompat.Builder builder = new NotificationCompat. Builder(this, CHANNEL_ID)
+
+setSmallIcon(R.drawable.ic launcher foreground)
+
+setContentTitle("Hello Notification")
+
+setContentText("This is a simple demo")
+
+setAutoCancel(true);
+NotificationManagerCompat.from(this).notify(1, builder.build());
+});
+}
+}</p>
+<p>
+
+Activity main.xml:
+
+,?xml version="1.0" encoding="utf-8"?>
+
+,LinearLayout xmlns:android=http://schemas.android.com/apk/res/android
+
+Xmlns:app-http://schemas.android.com/apk/res-auto
+
+Xmlns:tools=http://schemas.android.com/tools
+
+Android:id="@+id/main"
+
+Android:layout_width="match_parent"
+
+Android:layout_height="match_parent"
+
+Android:gravity="center"
+
+Android:orientation="vertical"
+
+Tools:context=".MainActivity">
+
+,TextView
+
+Android:layout_width="wrap_content"
+
+Android:layout_height="wrap_content"
+
+Android:text="Notification SYIT56"
+
+Android:layout_marginBottom="55dp"
+
+Android:textSize="30dp"
+
+Android:textColor="#FFFFF0"
+
+Android:textStyle="bold"/>
+
+,Button
+
+Android:layout_width="wrap_content"
+
+Android:layout_height="wrap_content"
+
+Android:text="Show Notification"
+
+Android:backgroundTint #F6EFAC
+
+Android:textSize="30dp"
+
+Android:id="@+id/notBtn" />
+
+,/LinearLayout>
+
+AndroidManifest.xml:
+
+,?xml version="1.0" encoding="utf-8"?>
+,manifest xmlns:android=http://schemas.android.com/apk/res/android>
+
+,uses-permission android:name="android.permission.POST_NOTIFICATIONS
+
+,application
+
+Android:allowBackup="true"
+
+Android:icon="@mipmap/ic_launcher"
+
+Android:label="@string/app_name"
+
+Android:roundIcon="@mipmap/ic_launcher_round"
+
+Android:supportsRtl="true"
+
+Android:theme="@style/Theme.Notifications">
+
+,activity
+
+Android:name" MainActivity"
+
+Android:exported="true">
+
+,intent-filter>
+
+,action android:name="android.intent.action.MAIN" />
+
+,category android:name="android.intent.category.LAUNCHER" />
+
+,/intent-filter>
+
+,/activity>
+
+,/application>
+
+,/manifest></p>
+  </div>
+<button class="accordion">Practical 9 : video view</button>
+  <div class="panel">
+    <p> MainActivity.java:
+
+import android.os.Bundle;
+
+import android.widget.MediaController;
+
+import android.widget. VideoView;
+
+import androidx.activity.EdgeToEdge;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.core.graphics.Insets;
+
+import androidx.core.view.ViewCompat;
+
+import androidx.core.view. WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+Video View videol;
+
+@Override
+
+protected void onCreate(Bundle savedInstanceState) {
+
+super.onCreate(savedInstanceState);
+
+EdgeToEdge.enable(this);
+
+setContentView(R.layout.activity main);
+
+ViewCompat.setOnApply WindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+
+Insets systemBars - insets getInsets(WindowInsetsCompat.Type.systemBars()); }); v.setPadding(systemBars.left, system Bars.top, systemBars.right, systemBars.bottom); return insets:
+
+video1= findViewById(R.id.video1);
+
+videol.setVideoPath("android.resource://" + getPackageName()+"/"+ R.raw.videoname);
+
+MediaController med = new MediaController(this);
+
+Videol.setMediaController(med);
+
+med.setAnchorView(video1);
+
+video1.start();
+}
+} 
+</p>
+<p>Activity main.xml:
+
+,?xml version="1.0" encoding="utf-8"?>
+
+,androidx.constraintlayout.widget.ConstraintLayout xmlns:android=http://schemas.android.com/apk/res/android
+
+Xmlns:app-lutp://schemas.android.com/apk/res-auto
+
+Xmlns:tools=http://schemas.android.com/tools
+
+Android:id="@+id/main"
+
+Android:layout_width="match parent"
+
+Android:layout_height="match parent"
+
+Tools:context" MainActivity">
+
+,VideoView
+
+Android:id="@+id/video1"
+
+Android:layout_width="0dp"
+
+Android:layout_height="0dp"
+
+App:layout_constraintBottom_toBottomOf="parent"
+
+App:layout_constraintEnd_toEndOf="parent"
+
+App:layout_constraintStart_toStartOf="parent"
+
+App:layout constraint Top_to Top Of "parent" /> 
+,/androidx.constraintlayout.widget.ConstraintLayout></p>
+  </div>
+
+  <!-- Add more practicals in the same way -->
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    for (let i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
